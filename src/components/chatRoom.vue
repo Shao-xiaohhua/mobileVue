@@ -144,7 +144,8 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-@import "../assets/scss/common";
+  @import '../assets/scss/variables';
+  @import '../assets/scss/mixins';
 .chatRoom_box {
   position: fixed;
   left: 0;

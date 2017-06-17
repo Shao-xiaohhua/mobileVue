@@ -1,8 +1,8 @@
 [![build status](https://git.homolo.org/fed/level-lawmap-webapp/badges/master/build.svg)](https://git.homolo.org/fed/level-lawmap-webapp/commits/master)
 
-# Lawmap
+# ''
 
-> 上海法治地图
+> ''
 
 ## Build Setup
 

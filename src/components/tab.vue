@@ -77,7 +77,8 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-@import "../assets/scss/common";
+  @import '../assets/scss/variables';
+  @import '../assets/scss/mixins';
 .boxS {
   position: relative;
   width: 100%;

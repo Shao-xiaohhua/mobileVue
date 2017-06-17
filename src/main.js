@@ -4,10 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
-import AMap from 'vue-amap'
 import VIscroll from 'viscroll'
+// 路由状态发起时
+router.beforeEach(function (to, from, next) {
+  next()
+})
+// 路由结束
+router.afterEach(function (to) {
+})
 
-Vue.use(AMap)
 Vue.use(VIscroll, {
   mouseWheel: true,
   vScrollbar: true,

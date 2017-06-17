@@ -1,21 +1,29 @@
 <template>
   <div class="thehead">
     <div class="tedbox">
-      <span class="left" @click="goback">返回</span>
+      <span class="left" @click="acGoBack">返回</span>
       <span class="cover">沪e法</span>
     </div>
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data () {
     return {
     }
   },
+  computed: {
+    ...mapGetters([
+      'toolbarArr'
+    ])
+  },
   methods: {
-    goback () {
-      this.$router.goBack()
-    }
+    ...mapActions([
+      'acGoBack'
+    ])
+  },
+  mounted () {
   }
 }
 </script>

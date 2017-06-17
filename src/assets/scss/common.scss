@@ -3,7 +3,6 @@
 @import "mixins";
 @import "iconfont";
 @import "button";
-
 @import "~normalize.css";
 
 .clearfix {
@@ -123,6 +122,9 @@ h6, .h6 { font-size: $font-size-h6; }
   border-spacing: 0;
   &.stretch{
     height: 100%;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    box-sizing: border-box;
   }
   > aside,
   > section{

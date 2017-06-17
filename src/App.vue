@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <div class="app_box">
-      <navbar></navbar>
-      <transition :name="transitionName">
-        <router-view class="child-view"></router-view>
-      </transition> 
-      <toolbar></toolbar>
-    </div>  
+      <view-box ref="viewBox">
+        <navbar slot="header"></navbar>
+        <div class="app_box">
+          <transition :name="transitionName">
+            <router-view class="child-view"></router-view>
+          </transition>
+        </div>  
+        <toolbar slot="bottom"></toolbar>
+      </view-box> 
   </div>
 </template>
 <script>
   import navbar from '@/components/navbar'
   import toolbar from '@/components/toolbar'
   import { ViewBox } from 'vux'
+  import { mapGetters } from 'vuex'
   export default {
     components: {
       ViewBox,
@@ -22,29 +25,27 @@
     data () {
       return {
         transitionName: 'slide-left',
-        aa: ''
+        aa: this.$router.isBack
       }
-    },
-    beforeRouteUpdate (to, from, next) {
-      let isBack = this.$router.isBack
-      if (isBack) {
-        this.transitionName = 'slide-right'
-      } else {
-        this.transitionName = 'slide-left'
-      }
-      this.$router.isBack = false
-      next()
     },
     watch: {
-      aa () {
+      area () {
+        if (this.area) {
+          this.transitionName = 'slide-right'
+        } else {
+          this.transitionName = 'slide-left'
+        }
       }
     },
     mounted () {
+      console.log(this.area)
     },
     methods: {
-      goback () {
-        this.$router.goBack()
-      }
+    },
+    computed: {
+      ...mapGetters([
+        'area'
+      ])
     }
   }
 </script>

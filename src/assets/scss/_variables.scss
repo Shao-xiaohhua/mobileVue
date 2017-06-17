@@ -1,3 +1,27 @@
+
+@mixin user($designdraft){
+  /*以下为各个主流移动设备宽度必须从大到小排列；
+  ipad pro:1024px;
+  ipad:768px;
+  iphone6+:414px;
+  iphone6:375px;
+  iphone5:320px
+  */
+  $list:1024px,800px,768px,720px,414px,412px,384px,375px,360px,320px;
+  @each $i in $list{
+    /*12栅格系统*/
+    @media screen and (max-width:#{$i}){
+      html{
+        /*使用rem，根据比例换算出需要的像素，6px等于.06rem*/
+        font-size: 100px*($i/$designdraft);
+      }
+    }
+  }
+}
+//这里输入设计稿宽度
+@include user(750px);
+
+
 //Colors
 $gray-base:              #585858;
 $gray-dark:              #333333;

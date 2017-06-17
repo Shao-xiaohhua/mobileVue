@@ -1,7 +1,7 @@
 <template>
   <div class="thefoot">
     <ul class="tedbox">
-      <li v-for="item in toolbarArr">
+      <li v-for="item in toolbarArr" @click="acGoNext">
       <span>
       <a :href="item.link"></a>
       {{item.name}}
@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data () {
     return {
@@ -19,6 +19,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'acGoNext'
+    ])
   },
   computed: {
     ...mapGetters([
